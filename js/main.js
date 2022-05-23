@@ -1,0 +1,28 @@
+const swiper = new Swiper('.swiper', {
+  slidesPerView: 3,
+  loop: true,
+  speed: 400,
+  spaceBetween: 70,
+  centerSlides: true,
+  slideToClickedSlide: true,
+  toggle: true,
+  // breakpoints: {
+  //   320: {
+  //     slidesPerView: 1,
+  //   }
+  // }
+});
+
+const modalWindow = document.querySelector('.modal');
+const btnModal = document.querySelector('.main-display__center-button');
+
+btnModal.addEventListener('click', () => {
+  modalWindow.classList.add('active');
+});
+
+modalWindow.addEventListener('click', (e) => {
+  const isModal = e.target.closest('.modal__inner');
+  if (!isModal) {
+    modalWindow.classList.remove('active');
+  }
+})
